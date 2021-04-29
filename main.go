@@ -18,8 +18,12 @@ func Count(number int) int { //this function count the number of digits there ar
 
 func TranformInLetter(num, length int) string { //this function transforms the number (int) into letters
 	var word string
+	negative := false
 	letters := [10]string{"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}
-
+	if num < 0 {
+		num = num * (-1)
+		negative = true
+	}
 	for length > 0 {
 		ris := float64(num)
 
@@ -37,6 +41,9 @@ func TranformInLetter(num, length int) string { //this function transforms the n
 		length--
 	}
 
+	if negative {
+		word = "(Negative)" + word
+	}
 	return word
 }
 
