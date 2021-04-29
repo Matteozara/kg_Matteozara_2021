@@ -26,10 +26,14 @@ func TranformInLetter(num, length int) string { //this function transforms the n
 		for ris >= 10 {
 			ris = ris / 10
 		}
-		a := int(ris)
-		word = word + letters[a]
-		num = num - a*(int(math.Pow(10, float64(length-1))))
 
+		if length != Count(num) {
+			word = word + letters[0]
+		} else {
+			a := int(ris)
+			word = word + letters[a]
+			num = num - a*(int(math.Pow(10, float64(length-1))))
+		}
 		length--
 	}
 
